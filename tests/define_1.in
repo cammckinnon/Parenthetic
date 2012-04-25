@@ -1,0 +1,15 @@
+tests:
+    - basic define functionality
+
+(
+    define
+    (() ()())
+
+    x
+    (() ()()()())
+
+    3
+    ((()) ()()())
+)
+
+(() ()()()())

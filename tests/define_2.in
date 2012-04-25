@@ -1,0 +1,48 @@
+tests:
+    - define within lambda
+    - define hoisting
+    - define correctly modifies the correct scope
+
+(() (())(()))
+(() (())(())(()))
+
+(
+    define 
+    (() ()())
+
+    (() (())(()))
+
+    ((
+        lambda
+        (() ())
+
+        no arguments
+        ()
+        
+        define
+        (
+            (() ()())
+            (() (())(()))
+            ((()) ()()) 2
+        )
+
+        ((()) ()()())
+    ))
+)
+
+(
+    define 
+    (() ()())
+
+    (() (())(())(()))
+
+    ((
+        lambda
+        (() ())
+
+        no arguments
+        ()
+
+        ((()) ()()()())
+    ))
+)
