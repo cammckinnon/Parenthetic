@@ -26,9 +26,9 @@ The following Parenthetic program prints 'hello world':
 
 2. Navigate to the Parenthetic directory and run the interpreter by typing:
 
-   ```python scheme.py```
+   ```python parenthetic.py```
 
-   It accepts code as input from stdin. Input is read until EOF is found, after which the output is written to the console.
+   It accepts code as input from standard input. Input is read until EOF is found, after which the output is written to the console.
 
 3. Or you can read input from a file like this:
 
