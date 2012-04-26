@@ -387,7 +387,7 @@ Example:
 
 Equivalent Lisp code:
 
-   (car (cons 1 2))
+    (car (cons 1 2))
 
 ###cdr
 
