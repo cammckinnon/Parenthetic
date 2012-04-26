@@ -515,7 +515,7 @@ Example:
 
 *Output*: ```ab```
 
-Tip: You can also pass any combination of characters and strings into the **plus** function (see above) to create strings.
+Tip: You can also pass any combination of characters and strings into the **add** function (see above) to create strings.
 
 
 ##Error handling
