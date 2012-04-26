@@ -6,7 +6,17 @@ Parenthetic is a lisp-style programming language whose programs contain only the
 
 The following Parenthetic program prints 'hello world':
 
-    ((()()())(()(()()))((()(()))((())()()()()()()())((()()(()))((())()()()()()()()()())((())()()()()()()()()()()))))((()()())(()(()()()))((()(())(())())((())()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()())))((()(()))((()(())(())())((()(()))(()(()()))((())()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()()()()())))(()(()()()))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()))))
+    ((()()())(()(()()))((()(()))((())()()()()()()())((()()(()))((())()()()()()()()()())
+    ((())()()()()()()()()()()))))((()()())(()(()()()))((()(())(())())((())()()()()()()(
+    )()()()()()()()()()()()()()()()()()()()()()()()()())))((()(()))((()(())(())())((()(
+    ()))(()(()()))((())()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()
+    )))((()(())(())())((()(()))(()(()()))((())()()()()()()()()()()())))((()(())(())())(
+    (()(()))(()(()()))((())()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))(
+    (())()()()()()()()()()()()()()())))(()(()()()))((()(())(())())((()(()))(()(()()))((
+    ())()()()()()()()()()()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()())
+    )((())()()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()(
+    )()()()()()()()()()()()()())))((()(())(())())((()(()))(()(()()))((())()()()()()()()
+    ()()()())))((()(())(())())((()(()))(()(()()))((())()()()))))
 
 ##Installation
 
@@ -28,7 +38,7 @@ The following Parenthetic program prints 'hello world':
 
 Parenthetic uses lisp-style expressions, where parentheses enclose expressions, and functions are called like this:
 
-        (foo arg1 arg2).
+    (foo arg1 arg2).
 
 Note that parenthetic programs with unmatched parentheses are invalid
 
@@ -40,12 +50,12 @@ A sequence of *n* parenthesis sets can be used to represent the integer *n*. For
 
 In order to tell the interpreter that you want the sequence to represent an integer, you must pass it as an argument to the built-in ```(())``` macro. The macro acts like a function that accepts parenthesis sequences and returns integers. For example, the following program prints 3.0 to the console:
 
-        (
-            integer macro
-            (())
-            3 sets of parentheses
-            () () ()
-        )
+    (
+        integer macro
+        (())
+        3 sets of parentheses
+        () () ()
+    )
 
 *Output*: ```3.0```
 
@@ -67,52 +77,52 @@ A symbol is a sequence of parentheses that corresponds to some data or a functio
 
 For example, the following Parenthetic program prints 10 by using the multiplication function ()(()) to multiply 5 times 2:
 
-        (
-            multiply [note the use of the [] macro]
-            (() ()(()))
+    (
+        multiply [note the use of the [] macro]
+        (() ()(()))
 
-            2
-            ((()) ()())
+        2
+        ((()) ()())
 
-            5
-            ((()) ()()()()())
-        )
+        5
+        ((()) ()()()()())
+    )
 
 *Output*: ```10.0```
 
-In Lisp, the above could be written as:
+Equivalent Lisp code:
 
-        (* 2 5)
+    (* 2 5)
 
 It is also possible to define your own symbols, using the built-in 'define' function, whose symbol is ()(). For example, the following code defines (())(()) as 6, then adds multiplies by 2 to get 12. Remember that all non-'()' characters are comments (including '[' and ']').:
 
-        define [[]][[]] as 6
-        (
-            define
-            (() ()())
+    define [[]][[]] as 6
+    (
+        define
+        (() ()())
 
-            [[]][[]]
-            (() (())(()))
-            
-            6
-            ((()) ()()()()()())
-        )
+        [[]][[]]
+        (() (())(()))
+        
+        6
+        ((()) ()()()()()())
+    )
 
-        [[]][[]] * 2
-        (
-            multiply
-            (() ()(()))
+    [[]][[]] * 2
+    (
+        multiply
+        (() ()(()))
 
-            [[]][[]]
-            (() (())(()))
+        [[]][[]]
+        (() (())(()))
 
-            2
-            ((()) ()())
-        )
+        2
+        ((()) ()())
+    )
 
 *Output*: ```12.0```
 
-In Lisp, we might have written that as:
+Equivalent Lisp code:
 
     (define x 6)
     (* x 2)
@@ -159,55 +169,55 @@ Symbol: ```()```
 
 Facilitates anonymous functions. Here's an example where we use **define** and **lambda** to create a function that takes in a number and adds 1 to it:
 
-        define a [][][] as a function that
-        takes in a number n and returns n + 1
-        (
-            define
-            (() ()())
+    define a [][][] as a function that
+    takes in a number n and returns n + 1
+    (
+        define
+        (() ()())
 
-            [][][]
-            (() ()()())
+        [][][]
+        (() ()()())
+
+        (
+            lambda
+            (() ())
 
             (
-                lambda
-                (() ())
+                n [[]][]
+                (() (())())
+            )
 
-                (
-                    n [[]][]
-                    (() (())())
-                )
+            n + 1
+            (
+                plus
+                (() (()))
+                
+                n [[]][]
+                (() (())())
 
-                n + 1
-                (
-                    plus
-                    (() (()))
-                    
-                    n [[]][]
-                    (() (())())
-
-                    1
-                    ((()) ())
-                )
+                1
+                ((()) ())
             )
         )
+    )
 
-        7 + 1
-        (
-            (() ()()())
-            7
-            ((()) ()()()()()()())
-        )
+    7 + 1
+    (
+        (() ()()())
+        7
+        ((()) ()()()()()()())
+    )
 
 
 *Output*: 8.0
 
 Equivalent Lisp code:
 
-        (define f
-          (lambda (n)
-            (+ n 1)))
+    (define f
+      (lambda (n)
+        (+ n 1)))
 
-        (f 7)
+    (f 7)
 
 
 ###equal
