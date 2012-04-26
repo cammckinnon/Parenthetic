@@ -267,4 +267,4 @@ try:
     syntax_trees = parse(code)
     interpret_trees(syntax_trees, default_environment)
 except:
-    print 'Paren Mismatch'
+    print 'Parenthesis Mismatch'
