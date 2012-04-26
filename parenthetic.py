@@ -31,9 +31,9 @@ for k,v in to_english.iteritems():
     to_scheme[v] = k
 
 def ParseError(errorString = 'unmatched parens'):
-    print "Error: " + errorString
-    os._exit(0)
-    #raise Exception('paren mismatch')
+    #print "Error: " + errorString
+    #os._exit(0)
+    raise Exception('paren mismatch')
     
 def bracketsMatch(chars):
     level = 0
