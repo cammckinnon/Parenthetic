@@ -38,7 +38,7 @@ The following Parenthetic program prints 'hello world':
 
 Parenthetic uses Lisp-style expressions, where parentheses enclose expressions:
 
-    (foo arg1 arg2).
+    (foo arg1 arg2)
 
 Note that parenthetic programs with unmatched parentheses are invalid
 
