@@ -1,6 +1,6 @@
 #Parenthetic
 
-Parenthetic is a lisp-style programming language whose programs contain only the following characters: '(' and ')'. All other characters in a Parenthetic program are considered comments and are ignored at runtime.
+Parenthetic is a programming langauge that uses only ```(``` and ```)``` as code. All other characters are considered comments.
 
 ##Hello World
 
@@ -22,21 +22,21 @@ The following Parenthetic program prints 'hello world':
 
 1. Clone the repo, which includes an interpreter written in Python 2.7:
 
-    git clone git@github.com:cammckinnon/Parenthetic.git
+   ```git clone git@github.com:cammckinnon/Parenthetic.git```
 
 2. Navigate to the Parenthetic directory and run the interpreter by typing:
 
-    python scheme.py
+   ```python scheme.py```
 
    It accepts code as input from stdin. Input is read until EOF is found, after which the output is written to the console.
 
-3.   Or you can read input from a file like this:
+3. Or you can read input from a file like this:
 
-    cat program.p | python parenthetic.py
+   ```cat program.p | python parenthetic.py```
 
 ##Syntax
 
-Parenthetic uses lisp-style expressions, where parentheses enclose expressions, and functions are called like this:
+Parenthetic uses Lisp-style expressions, where parentheses enclose expressions:
 
     (foo arg1 arg2).
 
@@ -75,7 +75,7 @@ Note that it doesn't matter how the parentheses in the sequence are nested withi
 
 A symbol is a sequence of parentheses that corresponds to some data or a function. For example, the symbol for the built-in multiplication function is ```()(())```. Like with integers, there is a macro for interpreting parenthesis sequences as symbols. It is ```()```.
 
-For example, the following Parenthetic program prints 10 by using the multiplication function ()(()) to multiply 5 times 2:
+For example, the following Parenthetic program prints 10 by using the multiplication function ```()(())``` to multiply 5 times 2:
 
     (
         multiply [note the use of the [] macro]
@@ -94,7 +94,7 @@ Equivalent Lisp code:
 
     (* 2 5)
 
-It is also possible to define your own symbols, using the built-in 'define' function, whose symbol is ()(). For example, the following code defines (())(()) as 6, then adds multiplies by 2 to get 12. Remember that all non-'()' characters are comments (including '[' and ']').:
+It is also possible to define your own symbols, using the built-in 'define' function, whose symbol is ```()()```. For example, the following code defines ```(())(())``` as 6, then adds multiplies by 2 to get 12. Remember that all characters other than ```(``` and ```)``` characters are comments (including ```[``` and ```]```).:
 
     define [[]][[]] as 6
     (
@@ -129,12 +129,12 @@ Equivalent Lisp code:
 
 ##Standard Library
 
-Parenthetic has a built-in standard library that is available by default (no includes/library imports necessary). Each list item contains the name of the feature, and how to pass in arguments (if applicable), followed by the parenthesis sequence for the symbol.
+Parenthetic has a built-in standard library that is available by default (no includes/library imports necessary):
 
 ###define
 Symbol: ```()()```
 
-For details on **define** and its usage, see Syntax->Symbols in this document.
+For details on **define** and its usage, see the Syntax->Symbols section above.
 
 ###multiply, divide, subtract, add
 These math operations can be performed on one or more numbers. Here are their symbols:
@@ -142,7 +142,7 @@ These math operations can be performed on one or more numbers. Here are their sy
  - **subtract**: ```(()())```
  - **multiply**: ```()(())```
  - **divide**: ```(())()```
- - **add**: ```(())```. Note: You can also use `add` for concatenating characters/strings together (see the **string** section below).
+ - **add**: ```(())```. Note: You can also use **add** for concatenating characters/strings together (see the **string** section below).
 
 Example:
 
@@ -203,6 +203,7 @@ Facilitates anonymous functions. Here's an example where we use **define** and *
 
     7 + 1
     (
+        plus
         (() ()()())
         7
         ((()) ()()()()()()())
@@ -272,7 +273,7 @@ Equivalent Lisp code:
 
 Symbol: ```()()()```
 
-Takes in three arguments: condition, then, else. If the condition is not false and not 0, the 'then' argument is evaluated and returned. Otherwise, the 'else' argument is evaluated and returned.
+Takes in three arguments: *condition*, *then*, and *else*. If *condition* is not false and not 0, the *then* argument is evaluated and returned. Otherwise, the *else* argument is evaluated and returned.
 
 Example:
 
@@ -335,7 +336,7 @@ Equivalent Lisp code:
 
 ###cons
 
-Symbol: ((()))()
+Symbol: ```((()))()```
 
 Takes in two arguments *a* and *b* and returns a pair ```(a, b)```.
 
@@ -360,7 +361,7 @@ Equivalent Lisp code:
 
 ###car
 
-Symbol: ((()))(())
+Symbol: ```((()))(())```
 
 Given a pair ```(a, b)```, returns `a`.
 
@@ -390,7 +391,7 @@ Equivalent Lisp code:
 
 ###cdr
 
-Symbol: ((()))()()
+Symbol: ```((()))()()```
 
     (
         cdr
@@ -416,9 +417,9 @@ Equivalent Lisp code:
 
 ###empty
 
-Symbol: ((()))
+Symbol: ```((()))```
 
-Empty exists to facilitate lists. That is, we define a list as a pair such that applying cdr one or more times will return empty. Note - empty is not a function; it can be accessed directly.
+**empty** exists to facilitate lists. We define a list as a pair such that applying **cdr** one or more times to the list will return **empty**. Note - empty is not a function; it can be accessed directly. When printed to the console, **empty** appears as ```()```.
 
 Example:
 
@@ -431,6 +432,8 @@ Equivalent Lisp code:
     (list)
 
 ###char
+
+Symbol: ```(())(())()```
 
 Accepts one integer argument, and returns the corresponding ascii character.
 
@@ -450,6 +453,8 @@ Example:
 *Output*: ```!```
 
 ###string
+
+Symbol: ```(())()(())```
 
 Accepts a list of characters, and returns a string. **string** is useful for displaying messages.
 
