@@ -1,6 +1,6 @@
 #Parenthetic
 
-Parenthetic is a programming langauge that uses only ```(``` and ```)``` as code. All other characters are considered comments.
+Parenthetic is a programming language that uses only ```(``` and ```)``` as code. All other characters are considered comments.
 
 ##Hello World
 
